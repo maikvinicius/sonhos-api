@@ -1,0 +1,19 @@
+{
+  "name": "sonhos-api",
+  "version": "1.0.0",
+  "description": "API para publicação de sonhos",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js"
+  },
+  "author": "Maik Vinícius",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.7.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
+}
