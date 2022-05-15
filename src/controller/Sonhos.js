@@ -2,8 +2,12 @@ const SonhosModel = require("../model/Sonhos");
 
 class Sonhos {
     async buscarTodos(req, res) {
-        await SonhosModel.find({}, function(err, response) {
-            if (err){ 
+        await SonhosModel.find({}, {}, {
+            sort: {
+                createdAt: -1
+            }
+        }, function (err, response) {
+            if (err) {
                 console.log(err);
             }
             return res.send({
@@ -21,10 +25,10 @@ class Sonhos {
     }
     async buscarUm(req, res) {
         await SonhosModel.findById(req.params.id, function (err, response) {
-            if(err){
+            if (err) {
                 console.log(err);
             }
-            if(response){
+            if (response) {
                 return res.send({
                     sucesso: true,
                     data: response
@@ -48,8 +52,8 @@ class Sonhos {
         });
     }
     async deletar(req, res) {
-        await SonhosModel.findByIdAndRemove(req.params.id,req.body, function(err,data){
-            if(err){
+        await SonhosModel.findByIdAndRemove(req.params.id, req.body, function (err, data) {
+            if (err) {
                 console.log(err);
             }
             return res.send({
